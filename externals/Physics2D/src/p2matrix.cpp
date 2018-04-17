@@ -34,7 +34,7 @@ p2Mat22::p2Mat22(p2Vec2 r1, p2Vec2 r2)
 
 p2Mat22 p2Mat22::operator+(p2Mat22 m1)
 {
-	return p2Mat22();
+	return p2Mat22(this->);
 }
 
 p2Mat22 p2Mat22::operator-(p2Mat22 m1)

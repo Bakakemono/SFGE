@@ -24,6 +24,9 @@ SOFTWARE.
 
 #ifndef SFGE_P2VECTOR_H
 #define SFGE_P2VECTOR_H
+#define _USE_MATH_DEFINES
+
+#include "math.h"
 
 struct p2Vec3;
 

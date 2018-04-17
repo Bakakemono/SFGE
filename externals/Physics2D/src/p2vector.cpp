@@ -34,37 +34,42 @@ p2Vec2::p2Vec2(float x, float y)
 
 p2Vec2 p2Vec2::operator+(p2Vec2 v)
 {
-	return p2Vec2();
+	return p2Vec2(this->x + x, this->y + y);
 }
 
 p2Vec2 p2Vec2::operator+=(p2Vec2 v)
 {
-	return p2Vec2();
+	return p2Vec2(*this + v);
 }
 
 p2Vec2 p2Vec2::operator-(p2Vec2 v)
 {
-	return p2Vec2();
+	return p2Vec2(this->x - x, this->y - y);
 }
 
 p2Vec2 p2Vec2::operator-=(p2Vec2 v)
 {
-	return p2Vec2();
+	return p2Vec2(*this - v);
 }
 
 p2Vec2 p2Vec2::operator/(float f)
 {
-	return p2Vec2();
+	return p2Vec2(this->x / f, this->y / f);
 }
 
 p2Vec2 p2Vec2::operator*(float f)
 {
-	return p2Vec2();
+	return p2Vec2(this->x * f, this->y * f);
 }
 
 float p2Vec2::Dot(p2Vec2 v1, p2Vec2 v2)
 {
-	return 0.0f;
+	return v1.x*v2.x + v1.y*v2.y;
+}
+
+p2Vec3 p2Vec2::Cross(p2Vec2 v1, p2Vec2 v2)
+{
+	return p2Vec3(v1.y*0.0f - v2.y * 0.0f, 0.0f*v2.x - 0.0f * v1.x, v1.x*v2.y - v2.x * v1.y);
 }
 
 float p2Vec2::GetMagnitude()
@@ -83,7 +88,7 @@ void p2Vec2::Normalize()
 
 p2Vec3 p2Vec2::to3()
 {
-	return p2Vec3();
+	return p2Vec3(this->x, this->y, 0.0f);
 }
 
 p2Vec3::p2Vec3()
@@ -96,10 +101,10 @@ p2Vec3::p2Vec3(float x, float y, float z)
 
 float p2Vec3::Dot(p2Vec3 v1, p2Vec3 v2)
 {
-	return 0.0f;
+	return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
 }
 
 p2Vec3 p2Vec3::Cross(p2Vec3 v1, p2Vec3 v2)
 {
-	return p2Vec3();
+	return p2Vec3(v1.y*v2.z - v2.y * v1.z, v1.z*v2.x - v2.z * v1.x, v1.x*v2.y - v2.x * v1.y);
 }
