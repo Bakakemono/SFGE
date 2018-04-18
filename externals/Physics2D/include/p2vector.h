@@ -80,6 +80,13 @@ struct p2Vec3
 {
 	p2Vec3();
 	p2Vec3(float x, float y, float z);
+
+	p2Vec3 operator+(p2Vec3 v);
+	p2Vec3 operator+=(p2Vec3 v);
+	p2Vec3 operator-(p2Vec3 v);
+	p2Vec3 operator-=(p2Vec3 v);
+	p2Vec3 operator /(float f);
+	p2Vec3 operator *(float f);
 	/**
 	* \brief Dot product of two vectors
 	*/
