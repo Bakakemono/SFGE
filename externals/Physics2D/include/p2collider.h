@@ -46,6 +46,8 @@ struct p2ColliderDef
 class p2Collider
 {
 public:
+	//Factory method creating a p2Collider
+	p2Collider(p2ColliderDef* colliderDef);
 	/**
 	* \brief Check if the p2Collider is a sensor
 	*/
@@ -57,6 +59,5 @@ public:
 private:
 	void* userData;
 };
-
 
 #endif

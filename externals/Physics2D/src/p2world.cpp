@@ -34,7 +34,10 @@ void p2World::Step(float dt)
 
 p2Body * p2World::CreateBody(p2BodyDef* bodyDef)
 {
-	return nullptr;
+	p2Body body(*bodyDef);
+	m_p2Bodys.push_front(body);
+	std::list<p2Body>::iterator it = m_p2Bodys.begin();
+	return &(*it);
 }
 
 void p2World::SetContactListener(p2ContactListener * contactListener)

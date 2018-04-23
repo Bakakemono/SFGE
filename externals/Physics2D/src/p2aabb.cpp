@@ -31,5 +31,5 @@ p2Vec2 p2AABB::GetCenter()
 
 p2Vec2 p2AABB::GetExtends()
 {
-	return p2Vec2(topRight - this->GetCenter);
+	return p2Vec2(topRight - this->GetCenter());
 }
