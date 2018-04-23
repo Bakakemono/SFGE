@@ -31,21 +31,21 @@ p2Body::p2Body(p2BodyDef bodyDef)
 
 p2Vec2 p2Body::GetLinearVelocity()
 {
-	return p2Vec2();
+	return linearVelocity;
 }
 
 void p2Body::SetLinearVelocity(p2Vec2 velocity)
 {
-
+	linearVelocity = velocity;
 }
 float p2Body::GetAngularVelocity()
 {
-	return 0.0f;
+	return angularVelocity;
 }
 
 p2Vec2 p2Body::GetPosition()
 {
-	return this->position;
+	return position;
 }
 
 p2Collider * p2Body::CreateCollider(p2ColliderDef * colliderDef)

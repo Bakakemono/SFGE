@@ -217,10 +217,13 @@ void PythonManager::Collect()
 
 unsigned int PythonManager::LoadPyComponentFile(std::string script_path, GameObject* gameObject)
 {
-	fs::path p = script_path;
-	std::string module_name = p.filename().replace_extension("").string();
+
+    auto folderLastIndex = script_path.find_last_of("/");
+    std::string filename = script_path.substr(folderLastIndex+1, script_path.size());
+    auto filenameExtensionIndex = filename.find_last_of(".");
+	std::string module_name = filename.substr(0,filenameExtensionIndex);
 	std::string class_name = module2component(module_name);
-	if(fs::is_regular_file(p))
+	if(IsRegularFile(script_path))
 	{
 		if(pythonModuleIdMap.find(script_path) != pythonModuleIdMap.end())
 		{

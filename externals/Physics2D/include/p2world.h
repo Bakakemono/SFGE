@@ -51,6 +51,7 @@ public:
 	void SetContactListener(p2ContactListener* contactListener);
 private:
 	std::list<p2Body> m_p2Bodys;
+	p2Vec2 m_Gravity;
 };
 
 #endif

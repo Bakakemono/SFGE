@@ -23,6 +23,7 @@ SOFTWARE.
 */
 
 #include <p2vector.h>
+#include <cmath>
 
 p2Vec2::p2Vec2()
 {
@@ -52,16 +53,19 @@ p2Vec2 p2Vec2::operator-(p2Vec2 v)
 p2Vec2 p2Vec2::operator-=(p2Vec2 v)
 {
 	return p2Vec2(*this - v);
+
 }
 
 p2Vec2 p2Vec2::operator/(float f)
 {
 	return p2Vec2(this->x / f, this->y / f);
+
 }
 
 p2Vec2 p2Vec2::operator*(float f)
 {
 	return p2Vec2(this->x * f, this->y * f);
+
 }
 
 float p2Vec2::Dot(p2Vec2 v1, p2Vec2 v2)
@@ -72,6 +76,7 @@ float p2Vec2::Dot(p2Vec2 v1, p2Vec2 v2)
 p2Vec3 p2Vec2::Cross(p2Vec2 v1, p2Vec2 v2)
 {
 	return p2Vec3(v1.y*0.0f - v2.y * 0.0f, 0.0f*v2.x - 0.0f * v1.x, v1.x*v2.y - v2.x * v1.y);
+
 }
 
 float p2Vec2::GetMagnitude()
@@ -87,6 +92,8 @@ p2Vec2 p2Vec2::Normalized()
 void p2Vec2::Normalize()
 {
 	*this = *this / this->GetMagnitude();
+	x /= GetMagnitude();
+	y /= GetMagnitude();
 }
 
 p2Vec3 p2Vec2::to3()
