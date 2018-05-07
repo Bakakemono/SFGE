@@ -32,8 +32,15 @@ SOFTWARE.
 */
 struct p2AABB
 {
+	p2AABB();
+	p2AABB(p2Vec2 postion, p2Vec2 size);
+	p2AABB(p2Vec2 postion, float radius);
+
+
 	p2Vec2 bottomLeft;
 	p2Vec2 topRight;
+
+	void SetPostion(p2Vec2 v);
 
 	/**
 	* \brief Calculate the center and return it
@@ -43,5 +50,8 @@ struct p2AABB
 	* \brief Calculate the extends and return it
 	*/
 	p2Vec2 GetExtends();
+
+	
+
 };
 #endif // !SFGE_P2AABB:H

@@ -22,15 +22,38 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 #include <p2world.h>
+#include <iostream>
 
 
 p2World::p2World(p2Vec2 gravity): m_Gravity(gravity)
 {
-
 }
 
 void p2World::Step(float dt)
 {
+	
+	for (auto p2Body_it = m_p2Bodys.begin(); p2Body_it != m_p2Bodys.end(); p2Body_it++)
+	{
+		if (p2Body_it->GetType() == p2BodyType::DYNAMIC)
+		{
+			p2Body_it->SetPosition(p2Body_it->GetLinearVelocity() * dt + m_Gravity * dt * p2Body_it->getGarvityScale());
+		}
+
+		for (auto p2Body_it2 = m_p2Bodys.begin(); p2Body_it2 != m_p2Bodys.end(); p2Body_it2++)
+		{
+			if (p2Body_it != p2Body_it2)
+			{ 
+				if (p2Body_it->CheckContactAABB(&(*p2Body_it2)))
+				{
+					std::cout << "can touch\n";
+				}
+				else
+				{
+					std::cout << "can not touch\n";
+				}
+			}
+		}
+	}
 }
 
 p2Body * p2World::CreateBody(p2BodyDef* bodyDef)

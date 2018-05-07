@@ -22,11 +22,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 #include <p2body.h>
+#include <iostream>
+
 
 p2Body::p2Body(p2BodyDef bodyDef)
 {
 	this->position = bodyDef.position;
 	this->linearVelocity = bodyDef.linearVelocity;
+	this->type = bodyDef.type;
+	this->gravityScale = bodyDef.gravityScale;
 }
 
 p2Vec2 p2Body::GetLinearVelocity()
@@ -48,8 +52,61 @@ p2Vec2 p2Body::GetPosition()
 	return position;
 }
 
+p2AABB p2Body::GetAABB()
+{
+	return p2AABB(this->aabb);
+}
+
+void p2Body::SetPosition(p2Vec2 v)
+{
+	position = position + v;
+	aabb.SetPostion(v);
+}
+
+float p2Body::getGarvityScale()
+{
+	if (this->gravityScale == 0)
+		return gravityScale;
+	else
+		return 1.0f;
+}
+
+p2BodyType p2Body::GetType()
+{
+	return this->type;
+}
+
 p2Collider * p2Body::CreateCollider(p2ColliderDef * colliderDef)
 {
+	if (p2CircleShape* d = dynamic_cast<p2CircleShape*>(colliderDef->shape))
+	{
+		this->aabb = p2AABB(GetPosition(), d->GetRadius());
+	}
+
+	else if (p2RectShape* d = dynamic_cast<p2RectShape*>(colliderDef->shape))
+	{
+		this->aabb = p2AABB(GetPosition(), d->GetSize());
+	}
+
 	this->collider = new p2Collider(colliderDef);
 	return (this->collider);
+}
+
+bool p2Body::CheckContactAABB(p2Body* body)
+{
+	p2Vec2 body1 = this->aabb.GetCenter() - p2Vec2(this->aabb.GetExtends().x, this->aabb.GetExtends().y);
+	p2Vec2 body2 = body->aabb.GetCenter() - p2Vec2(body->aabb.GetExtends().x, body->aabb.GetExtends().y);
+
+
+	if ((body2.x >= body1.x + this->aabb.GetExtends().x*2)
+		|| (body2.x + body->aabb.GetExtends().x * 2 <= body1.x)
+		|| (body2.y >= body1.y + this->aabb.GetExtends().y * 2)
+		|| (body2.y + body->aabb.GetExtends().y * 2 <= body1.y))
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
 }

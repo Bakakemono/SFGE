@@ -24,6 +24,30 @@ SOFTWARE.
 
 #include <p2aabb.h>
 
+
+
+p2AABB::p2AABB()
+{
+}
+
+p2AABB::p2AABB(p2Vec2 postion, p2Vec2 size)
+{
+	bottomLeft = postion - size / 2;
+	topRight = postion + size / 2;
+}
+
+p2AABB::p2AABB(p2Vec2 postion, float radius)
+{
+	bottomLeft = postion - p2Vec2(radius, radius);
+	topRight = postion + p2Vec2(radius, radius);
+}
+
+void p2AABB::SetPostion(p2Vec2 v)
+{
+	topRight = topRight + v;
+	bottomLeft = bottomLeft + v;
+}
+
 p2Vec2 p2AABB::GetCenter()
 {
 	return p2Vec2((this->topRight + this->bottomLeft) / 2);
@@ -31,5 +55,5 @@ p2Vec2 p2AABB::GetCenter()
 
 p2Vec2 p2AABB::GetExtends()
 {
-	return p2Vec2(topRight - this->GetCenter());
+	return p2Vec2(this->topRight - this->GetCenter());
 }

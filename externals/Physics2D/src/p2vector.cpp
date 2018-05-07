@@ -42,7 +42,7 @@ p2Vec2 p2Vec2::operator+(p2Vec2 v)
 
 p2Vec2 p2Vec2::operator+=(p2Vec2 v)
 {
-	return p2Vec2(*this + v);
+	return p2Vec2((*this) + v);
 }
 
 p2Vec2 p2Vec2::operator-(p2Vec2 v)

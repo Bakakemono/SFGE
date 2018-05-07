@@ -32,7 +32,13 @@ SOFTWARE.
 */
 class p2Contact
 {
+private:
+
+	p2Collider ColliderA;
+	p2Collider ColliderB;
 public:
+	void SetColliderA(p2Collider Collider);
+	void SetColliderB(p2Collider Collider);
 	p2Collider* GetColliderA();
 	p2Collider* GetColliderB();
 };

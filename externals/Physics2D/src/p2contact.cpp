@@ -24,12 +24,24 @@ SOFTWARE.
 
 #include <p2contact.h>
 
+
+
+void p2Contact::SetColliderA(p2Collider Collider)
+{
+	ColliderA = Collider;
+}
+
+void p2Contact::SetColliderB(p2Collider Collider)
+{
+	ColliderB = Collider;
+}
+
 p2Collider * p2Contact::GetColliderA()
 {
-	return nullptr;
+	return &(this->ColliderA);
 }
 
 p2Collider * p2Contact::GetColliderB()
 {
-	return nullptr;
+	return &(this->ColliderA);
 }

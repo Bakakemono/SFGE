@@ -46,8 +46,10 @@ p2Mat22 p2Mat22::operator-(p2Mat22 m1)
 
 p2Mat22 p2Mat22::operator*(p2Mat22 m1)
 {
-	return p2Mat22(	p2Vec2(this->rows[0].x * m1.rows[0].x + this->rows[1].x * m1.rows[0].y, this->rows[0].y * m1.rows[0].x + this->rows[1].y * m1.rows[0].y),
-					p2Vec2(this->rows[0].x * m1.rows[1].x + this->rows[1].x * m1.rows[1].y, this->rows[0].y * m1.rows[1].x + this->rows[1].y * m1.rows[1].y));
+	return p2Mat22(	p2Vec2(	this->rows[0].x * m1.rows[0].x + this->rows[1].x * m1.rows[0].y,
+							this->rows[0].y * m1.rows[0].x + this->rows[1].y * m1.rows[0].y),
+					p2Vec2(	this->rows[0].x * m1.rows[1].x + this->rows[1].x * m1.rows[1].y,
+							this->rows[0].y * m1.rows[1].x + this->rows[1].y * m1.rows[1].y));
 }
 
 p2Vec2 p2Mat22::operator*(p2Vec2 v)
@@ -73,7 +75,7 @@ p2Mat22 p2Mat22::Invert()
 	}
 	else
 	{
-		return p2Mat22(p2Vec2(this->rows[1].y, -(this->rows[0].y)) / this->GetDeterminant(), p2Vec2(-(this->rows[1].x), this->rows[0].x) / this->GetDeterminant());
+		return p2Mat22(p2Vec2(this->rows[1].y, -(this->rows[0].y)), p2Vec2(-(this->rows[1].x), this->rows[0].x)) * 1/this->GetDeterminant();
 	}
 }
 
@@ -121,7 +123,9 @@ p2Mat33 p2Mat33::operator*(p2Mat33 m1)
 
 p2Vec3 p2Mat33::operator*(p2Vec3 v)
 {
-	return p2Vec3(this->rows[0].x * v.x + this->rows[1].x * v.y + this->rows[2].x * v.z, this->rows[0].y * v.x + this->rows[1].y * v.y + this->rows[2].y * v.z, this->rows[0].z * v.x + this->rows[1].z * v.y + this->rows[2].z * v.z);
+	return p2Vec3(	this->rows[0].x * v.x + this->rows[1].x * v.y + this->rows[2].x * v.z,
+					this->rows[0].y * v.x + this->rows[1].y * v.y + this->rows[2].y * v.z,
+					this->rows[0].z * v.x + this->rows[1].z * v.y + this->rows[2].z * v.z);
 }
 
 p2Mat33 p2Mat33::operator*(float f)

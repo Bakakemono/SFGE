@@ -4,15 +4,21 @@
 p2Collider::p2Collider(p2ColliderDef* colliderDef)
 {
 	userData = (*colliderDef).userData;
+	isSensor = (*colliderDef).isSensor;
 }
 
 
 bool p2Collider::IsSensor()
 {
-	return false;
+	return this->isSensor;
 }
 
 void * p2Collider::GetUserData()
 {
 	return userData;
+}
+
+p2Collider p2Collider::GetCollider()
+{
+	return *this;
 }
