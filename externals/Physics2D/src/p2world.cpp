@@ -85,7 +85,6 @@ void p2World::UniversGravity(p2Body * a, p2Body * Sun, float dt)
 	VecDirGravity = VecDirGravity * (6.67 * pow(10, -11) * a->GetMass() * Sun->GetMass() / pow((Sun->GetPosition() - a->GetPosition()).GetMagnitude(), 2));
 	VecPerpenicular.Normalized();
 	VecPerpenicular = VecPerpenicular + a->GetAcceleration() * dt;
-	std::cout << a->GetAcceleration().x << "\n";
 	a->SetPosition(VecDirGravity + VecPerpenicular / 50);
 }
 
