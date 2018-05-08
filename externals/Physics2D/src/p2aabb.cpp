@@ -42,7 +42,7 @@ p2AABB::p2AABB(p2Vec2 postion, float radius)
 	topRight = postion + p2Vec2(radius, radius);
 }
 
-void p2AABB::SetPostion(p2Vec2 v)
+void p2AABB::SetPosition(p2Vec2 v)
 {
 	topRight = topRight + v;
 	bottomLeft = bottomLeft + v;

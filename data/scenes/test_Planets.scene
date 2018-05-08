@@ -1,0 +1,83 @@
+{
+"name": "SceneTest",
+	"game_objects": [
+		{
+			"name": "Sun",
+			"components": [
+				{
+					"type": 1,
+					"position": [400, 400],
+					"scale" : [1.0,1.0],
+					"angle": 0.0
+				},
+				{
+					"name": "Circle Shape Component",
+					"type": 3,
+					"shape_type": 1,
+					"radius": 50.0
+				},
+				{
+					"name": "Rigidbody",
+					"type": 5,
+					"body_type": 2
+				},
+				{
+					"type": 4,
+					"script_path": "scripts/collider_test.py"
+				}
+			]
+		},
+		{
+			"name": "Planets1",
+			"components": [
+				{
+					"type": 1,
+					"position": [450, 400],
+					"scale" : [1.0,1.0],
+					"angle": 0.0
+				},
+				{
+					"name": "Circle Shape Component",
+					"type": 3,
+					"shape_type": 1,
+					"radius": 5.0
+				},
+				{
+					"name": "Rigidbody",
+					"type": 5,
+					"body_type": 2
+				},
+				{
+					"type": 4,
+					"script_path": "scripts/collider_test.py"
+				}
+			]
+		},
+		{
+			"name": "Planets2s",
+			"components": [
+				{
+					"type": 1,
+					"position": [550, 400],
+					"scale" : [1.0,1.0],
+					"angle": 0.0
+				},
+				{
+					"name": "Circle Shape Component",
+					"type": 3,
+					"shape_type": 1,
+					"radius": 5.0
+				},
+				{
+					"name": "Rigidbody",
+					"type": 5,
+					"body_type": 2
+				},
+				{
+					"type": 4,
+					"script_path": "scripts/collider_test.py"
+				}
+			]
+
+	]
+}

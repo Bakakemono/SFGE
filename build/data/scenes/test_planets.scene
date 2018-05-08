@@ -1,0 +1,217 @@
+{
+"name": "SceneTest",
+	"game_objects": [
+		{
+			"name": "Planet1",
+			"components": [
+				{
+					"type": 1,
+					"position": [750, 350],
+					"scale" : [1.0,1.0],
+					"angle": 0.0
+				},
+				{
+					"name": "Circle Shape Component",
+					"type": 3,
+					"shape_type": 1,
+					"radius": 5.0
+				},
+				{
+					"name": "Rigidbody",
+					"type": 5,
+					"body_type": 2,
+					"gravity_scale": 0
+				},
+              			{
+                	  		"name": "CircleCollider",
+                  			"type": 6,
+                  			"collider_type": 1,
+                  			"radius": 5.0,
+                  			"bouncing": 0.5,
+                  			"sensor": true
+             	 		},
+				{
+					"type": 4,
+					"script_path": "scripts/collider_test.py"
+				}
+			]
+		},
+		{
+			"name": "Planet2",
+			"components": [
+				{
+					"type": 1,
+					"position": [350, 350],
+					"scale" : [1.0,1.0],
+					"angle": 0.0
+				},
+				{
+					"name": "Circle Shape Component",
+					"type": 3,
+					"shape_type": 1,
+					"radius": 5.0
+				},
+				{
+					"name": "Rigidbody",
+					"type": 5,
+					"body_type": 2,
+					"gravity_scale": 0
+				},
+              			{
+                	  		"name": "CircleCollider",
+                  			"type": 6,
+                  			"collider_type": 1,
+                  			"radius": 5.0,
+                  			"bouncing": 0.5,
+                  			"sensor": true
+             	 		},
+				{
+					"type": 4,
+					"script_path": "scripts/collider_test.py"
+				}
+			]
+		},
+		{
+			"name": "Planet3",
+			"components": [
+				{
+					"type": 1,
+					"position": [150, 250],
+					"scale" : [1.0,1.0],
+					"angle": 0.0
+				},
+				{
+					"name": "Circle Shape Component",
+					"type": 3,
+					"shape_type": 1,
+					"radius": 5.0
+				},
+				{
+					"name": "Rigidbody",
+					"type": 5,
+					"body_type": 2,
+					"gravity_scale": 0
+				},
+              			{
+                	  		"name": "CircleCollider",
+                  			"type": 6,
+                  			"collider_type": 1,
+                  			"radius": 5.0,
+                  			"bouncing": 0.5,
+                  			"sensor": true
+             	 		},
+				{
+					"type": 4,
+					"script_path": "scripts/collider_test.py"
+				}
+			]
+		},
+		{
+			"name": "Planet4",
+			"components": [
+				{
+					"type": 1,
+					"position": [250, 650],
+					"scale" : [1.0,1.0],
+					"angle": 0.0
+				},
+				{
+					"name": "Circle Shape Component",
+					"type": 3,
+					"shape_type": 1,
+					"radius": 5.0
+				},
+				{
+					"name": "Rigidbody",
+					"type": 5,
+					"body_type": 2,
+					"gravity_scale": 0
+				},
+              			{
+                	  		"name": "CircleCollider",
+                  			"type": 6,
+                  			"collider_type": 1,
+                  			"radius": 5.0,
+                  			"bouncing": 0.5,
+                  			"sensor": true
+             	 		},
+				{
+					"type": 4,
+					"script_path": "scripts/collider_test.py"
+				}
+			]
+		},
+		{
+			"name": "Planet5",
+			"components": [
+				{
+					"type": 1,
+					"position": [350, 450],
+					"scale" : [1.0,1.0],
+					"angle": 0.0
+				},
+				{
+					"name": "Circle Shape Component",
+					"type": 3,
+					"shape_type": 1,
+					"radius": 5.0
+				},
+				{
+					"name": "Rigidbody",
+					"type": 5,
+					"body_type": 2,
+					"gravity_scale": 0
+				},
+              			{
+                	  		"name": "CircleCollider",
+                  			"type": 6,
+                  			"collider_type": 1,
+                  			"radius": 5.0,
+                  			"bouncing": 0.5,
+                  			"sensor": true
+             	 		},
+				{
+					"type": 4,
+					"script_path": "scripts/collider_test.py"
+				}
+			]
+		},
+		{
+			"name": "Sun",
+			"components": [
+				{
+					"type": 1,
+					"position": [600, 350],
+					"scale" : [1.0,1.0],
+					"angle": 0.0
+				},
+				{
+					"name": "Circle Shape Component",
+					"type": 3,
+					"shape_type": 1,
+					"radius": 50.0
+				},
+
+				{
+					"name": "Rigidbody",
+					"type": 5,
+					"body_type": 2,
+					"gravity_scale": 0
+				},
+              			{
+                	  		"name": "CircleCollider",
+                  			"type": 6,
+                  			"collider_type": 1,
+                  			"radius": 50.0,
+                  			"bouncing": 0.5,
+                  			"sensor": true
+             	 		},
+				{
+					"type": 4,
+					"script_path": "scripts/collider_test.py"
+				}
+			]
+		}
+
+	]
+}

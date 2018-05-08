@@ -49,9 +49,13 @@ public:
 	* \brief Set the contact listener
 	*/
 	void SetContactListener(p2ContactListener* contactListener);
+	void UniversGravity(p2Body* a, p2Body* b, float dt);
+	void SetMass(float Msoleil, float Mplanets);
+	bool Test_planets = true;
 private:
 	std::list<p2Body> m_p2Bodys;
 	p2Vec2 m_Gravity;
+	float DeltaTime = 0;
 };
 
 #endif

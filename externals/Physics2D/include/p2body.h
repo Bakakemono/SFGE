@@ -24,9 +24,13 @@ SOFTWARE.
 
 #ifndef SFGE_P2BODY_H
 #define SFGE_P2BODY_H
+#define _USE_MATH_DEFINES
+
+#include "math.h"
 
 #include <p2aabb.h>
 #include <p2collider.h>
+#include <time.h>
 
 class p2Collider;
 struct p2ColliderDef;
@@ -64,13 +68,23 @@ public:
 
 	float GetAngularVelocity();
 	
+	p2Collider* GetCollider();
+	
 	p2Vec2 GetPosition();
 
 	p2AABB GetAABB();
 
 	void SetPosition(p2Vec2 v);
 
-	float getGarvityScale();
+	float GetGarvityScale();
+
+	void SetMass(float Mass);
+
+	float GetMass();
+
+	void SetAcceleration();
+
+	p2Vec2 GetAcceleration();
 
 	p2BodyType GetType();
 	/**
@@ -88,6 +102,8 @@ private:
 	p2BodyType type;
 	p2Collider* collider;
 	float gravityScale;
+	float mass = 0;
+	p2Vec2 acceleration;
 };
 
 #endif

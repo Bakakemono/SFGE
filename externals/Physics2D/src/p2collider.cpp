@@ -3,8 +3,9 @@
 
 p2Collider::p2Collider(p2ColliderDef* colliderDef)
 {
-	userData = (*colliderDef).userData;
-	isSensor = (*colliderDef).isSensor;
+	userData = colliderDef->userData;
+	isSensor = colliderDef->isSensor;
+	shape = colliderDef->shape;
 }
 
 
@@ -21,4 +22,9 @@ void * p2Collider::GetUserData()
 p2Collider p2Collider::GetCollider()
 {
 	return *this;
+}
+
+p2Shape p2Collider::GetShape()
+{
+	return *shape;
 }

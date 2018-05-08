@@ -46,6 +46,5 @@ p2Vec2 p2RectShape::GetSize()
 	return m_Size;
 }
 
-void p2Shape::f()
-{
-}
+void p2Shape::f(){}
+

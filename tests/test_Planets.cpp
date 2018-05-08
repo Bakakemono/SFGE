@@ -23,14 +23,14 @@ SOFTWARE.
 */
 #include <engine/engine.h>
 #include <engine/scene.h>
+#include "p2world.h"
 
 int main()
 {
 	sfge::Engine engine;
 	engine.Init(false, true);
 	auto sceneManager = engine.GetSceneManager();
-	sceneManager->SetCurrentScene(sceneManager->LoadSceneFromName("data/scenes/test_physics.scene"));
-
+	sceneManager->SetCurrentScene(sceneManager->LoadSceneFromName("data/scenes/test_planets.scene"));
 
 	engine.Start();
 #if WIN32

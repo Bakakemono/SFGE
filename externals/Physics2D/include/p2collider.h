@@ -57,8 +57,10 @@ public:
 	*/
 	void* GetUserData();
 	p2Collider GetCollider();
+	p2Shape GetShape();
 private:
 	void* userData;
+	p2Shape* shape;
 	bool isSensor;
 };
 

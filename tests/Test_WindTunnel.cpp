@@ -21,37 +21,20 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+#include <engine/engine.h>
+#include <engine/scene.h>
 
-#ifndef SFGE_P2AABB_H
-#define SFGE_P2AABB_H
-
-#include <p2vector.h>
-
-/**
-* \brief Struct representing a Axis Aligned Bounding Box
-*/
-struct p2AABB
+int main()
 {
-	p2AABB();
-	p2AABB(p2Vec2 postion, p2Vec2 size);
-	p2AABB(p2Vec2 postion, float radius);
+	sfge::Engine engine;
+	engine.Init(false, true);
+	auto sceneManager = engine.GetSceneManager();
+	sceneManager->SetCurrentScene(sceneManager->LoadSceneFromName("data/scenes/test_physics.scene"));
 
 
-	p2Vec2 bottomLeft;
-	p2Vec2 topRight;
-
-	void SetPosition(p2Vec2 v);
-
-	/**
-	* \brief Calculate the center and return it
-	*/
-	p2Vec2 GetCenter();
-	/**
-	* \brief Calculate the extends and return it
-	*/
-	p2Vec2 GetExtends();
-
-	
-
-};
-#endif // !SFGE_P2AABB:H
+	engine.Start();
+#if WIN32
+	system("pause");
+#endif
+	return EXIT_SUCCESS;
+}
