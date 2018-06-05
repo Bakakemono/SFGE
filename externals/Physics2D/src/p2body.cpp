@@ -40,7 +40,7 @@ p2Vec2 p2Body::GetLinearVelocity()
 
 void p2Body::SetLinearVelocity(p2Vec2 velocity)
 {
-	linearVelocity += velocity;
+	linearVelocity = velocity;
 }
 float p2Body::GetAngularVelocity()
 {
@@ -70,8 +70,8 @@ void p2Body::SetPosition(p2Vec2 v)
 
 float p2Body::GetGarvityScale()
 {
-	if (this->gravityScale == 0)
-		return gravityScale;
+	if (this->gravityScale != 1.0f)
+		return 0.0f;
 	else
 		return 1.0f;
 }
@@ -79,17 +79,6 @@ float p2Body::GetGarvityScale()
 void p2Body::SetMass(float Mass)
 {
 	mass = Mass;
-}
-
-float p2Body::GetMass()
-{
-	return mass;
-}
-
-void p2Body::SetAcceleration()
-{
-	acceleration = p2Vec2((rand() % 10) + 1, 0);
-	
 }
 
 p2Vec2 p2Body::GetAcceleration()
@@ -115,7 +104,6 @@ p2Collider * p2Body::CreateCollider(p2ColliderDef * colliderDef)
 	}
 
 	this->collider = new p2Collider(colliderDef);
-	this->SetAcceleration();
 	return (this->collider);
 }
 

@@ -56,8 +56,9 @@ public:
 /**
 * \brief Managing the creation and destruction of contact between colliders
 */
-class p2ContactManager
+class p2ContactManager: public p2ContactListener
 {
+
 
 };
 #endif
